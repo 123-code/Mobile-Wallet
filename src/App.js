@@ -7,18 +7,6 @@ import Button from '@mui/material/Button';
 
 
 
-export function Navbar() {
-  return(
-      <>
-       
-       <h1> Hola </h1>
-      </>
-
-  );
-  
-}
-
-
 
 
 
@@ -42,14 +30,6 @@ function App() {
   );
 }
 
-const Info = ()=>(
-  <>
-  <div>
-  <h1> Bitcoin </h1>
-
-  </div>
-  </>
-)
 
 
 

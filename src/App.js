@@ -12,16 +12,16 @@ import Button from '@mui/material/Button';
 
 function App() {
   return (
-    
+     
     <div className="App">
     
    <h1> EcWallet </h1>
 
-  <Info/>
+  
 
 
   <Button href = "/portal" variant="contained">Comprar</Button>
-<Routes>
+<Routes> 
   <Route path="/portal" element={<Portal/>}/>
 </Routes>
 

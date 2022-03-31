@@ -4,7 +4,7 @@ import {Routes,Route} from 'react-router-dom';
 import  {Home,Comprar} from './Pages/Home';
 import {Portal} from './Pages/Portal';
 import Button from '@mui/material/Button';
-
+import Price from './Components/Price';
 
 
 
@@ -16,7 +16,9 @@ function App() {
     <div className="App">
     
    <h1> EcWallet </h1>
-
+   <Price/>
+  
+ 
   
 
 

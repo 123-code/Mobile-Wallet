@@ -1,22 +1,26 @@
 // getting real time bitcoin price. 
 
-import React from 'react';
-const Key = process.env.API_KEY;
+import React,{useState,useEffect} from 'react';
+
 
 
 export default function Price(){
+  let [price,setPrice] = useState(0);
+  
 
-  const GetPrice = async()=>{
-    await fetch(Key).then(response=>response.json())
-    .then(data=>console.info(data))
-    .catch(err=>console.info(err));
-    <h1>{data.price_usd}</h1>
-  }
+ async function GetPrice(){
+   const Key = process.env.API_KEY;
+   const url = "wss://ws.coinapi.io/v1/"
+ }
+    
+  GetPrice();
     
   return( 
     <>
-      <h1> Bitcoin Price!</h1>
-      <GetPrice/>
+     
+      
+      <h1>Bitcoin Price:{price}</h1>
+     
     </>
   )
 }

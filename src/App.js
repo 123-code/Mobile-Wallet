@@ -16,13 +16,15 @@ function App() {
     <div className="App">
     
    <h1> EcWallet </h1>
-   <Price/>
+   
   
  
   
 
 
   <Button href = "/portal" variant="contained">Comprar</Button>
+  <h2> Aún no eres usuario?</h2>
+  <Button href = "/portal" variant="contained">Registrate</Button>
 <Routes> 
   <Route path="/portal" element={<Portal/>}/>
 </Routes>

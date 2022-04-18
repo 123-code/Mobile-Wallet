@@ -8,7 +8,9 @@ import {BiHelpCircle} from 'react-icons/bi';
 const Navbar = ()=>{
 return(
     <>
-    <h1> this is a navbar </h1>
+    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
+        <h1> Hola </h1>
+    </nav>
     </>
 
 )

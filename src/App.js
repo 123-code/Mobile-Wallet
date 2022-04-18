@@ -1,40 +1,41 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-import {Routes,Route} from 'react-router-dom';
-import  {Home,Comprar} from './Pages/Home';
-import {Portal} from './Pages/Portal';
-import Button from '@mui/material/Button';
-import Price from './Components/Price';
+import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
+import Home from './Pages/Home';
+import MiBilletera from './Pages/MiBilletera';
+import Registro from './Pages/Registro';
+import Portal from './Pages/Portal';
 
 
-
-
-
-function App() {
-  return (
-     
-    <div className="App">
-    
-   <h1> EcWallet </h1>
-   
+export default class App extends React.Component {
+  render(){
+    return(
+      <div>
+<Router>
+     <div className="App">
+<Routes>
   
+ <Route path="/" element = {<Home/>}/>
+ <Route path="/mibilletera" element = {<MiBilletera/>}/>
+ <Route path="/registro" element = {<Registro/>}/>
+ <Route path="/portal" element = {<Portal/>}/>
  
-  
+ </Routes>
 
 
-  <Button href = "/portal" variant="contained">Comprar</Button>
-  <h2> Aún no eres usuario?</h2>
-  <Button href = "/portal" variant="contained">Registrate</Button>
-<Routes> 
-  <Route path="/portal" element={<Portal/>}/>
-</Routes>
+  </div>
 
-    
-    </div>
-  );
+  </Router>
+<div className="page-body">
+
+</div>
+ 
+  </div>
+    )
+  }
 }
 
 
 
 
-export default App;
+

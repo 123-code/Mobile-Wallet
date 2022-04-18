@@ -5,3 +5,6 @@ export const Portal = ()=>(
     <h1> Portal de Compras </h1>
     </>
 )
+
+
+export default Portal;

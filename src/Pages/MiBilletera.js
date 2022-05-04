@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from "react-dom"
+
 // still with mistakes!!!
+/*
 const PayPalButton = paypal.Buttons.driver("react", { React, ReactDOM });
 
 function MiBilletera(){
@@ -29,5 +31,13 @@ function MiBilletera(){
             <h1>Mi Billetera</h1>  
         </>
     )
+}*/
+const Mibilletera = () => {
+	return(
+		<>
+			<h1>Mi Billetera</h1>  
+		</> 
+	)
 }
-export default MiBilletera;
+
+export default Mibilletera;

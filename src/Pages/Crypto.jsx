@@ -5,6 +5,7 @@ const Crypto = () => {
 
     return(
         <>
+        <h1>Bitcoin</h1>
         </>
     )
 }

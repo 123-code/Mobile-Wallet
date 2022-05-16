@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import ReactDOM from "react-dom"
 
 // still with mistakes!!!
@@ -33,9 +33,16 @@ function MiBilletera(){
     )
 }*/
 const Mibilletera = () => {
+	let [valor,setvalor] = useState(0);
+
+	setvalor=()=>{
+		// fetch from database. 
+
+	}
 	return(
 		<>
-			<h1>Mi Billetera</h1>  
+			<h1>Mi Billetera:</h1>  
+			<h1> {valor} </h1>
 		</> 
 	)
 }

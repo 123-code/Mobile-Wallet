@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Form = (props,props1)=>{
+const Form = (props)=>{
     return(
         <>
         <form>

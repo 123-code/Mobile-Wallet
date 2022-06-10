@@ -7,43 +7,46 @@ import Paybutton from '../Components/Paybutton';
 
 const Home = ()=>{
     let[mostrar,setmostrar] = useState();
+    let [registro,setregistro] = useState(false);
+    let [login,setlogin] = useState(false);
   setmostrar = ()=>{mostrar = true;}
 
+    setregistro = ()=>{
+        registro=true;
+    }
 
-const renderpager = ()=>{
-    setmostrar();
-    console.info(" .. "+mostrar);
-    return(
-<>
-if (mostrar==true) {
-  <Registro/>
-       
-}
+    setlogin = ()=>{
+       registro = false;
+    }
 
-</>
-    )
-}
-const renderpagel = ()=>{
-    setmostrar();
-    console.info(" .. "+mostrar);
-    return(
-<>
-if (mostrar===true) {
-        <Login/>
-}
+  function Mostrarpagina(login,registro){
+      <div>
 
-</>
+     { login?
+            <Login/>
+      :
+          <Registro/>}
+      </div>
+   
+      
+  }
 
-    )
     
-}
+   
+
     return(
         <div>
             <h1>Payz Wallet </h1>
              
             <div>
-           <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 " onClick={()=>{renderpager()}}>Registro</button>
-           <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 " onClick={()=>{renderpagel()}}>Ingreso</button>
+                
+          <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 "onClick={()=>{Mostrarpagina('registro')}}>Registro</button>
+                
+           
+           
+           <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 " onClick={()=>{Mostrarpagina('login')}}>Ingreso</button>
+          
+           
             </div>
             <Paybutton/>
             <Footer/>

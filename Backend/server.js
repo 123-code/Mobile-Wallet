@@ -50,9 +50,10 @@ app.post("/registro",(req,res)=>{
             console.info("data inserted");
         }
     })
-
+ 
+    
 });
-
+ 
 app.get("/portal",(req,res)=>{
     res.send("Portal");
 });

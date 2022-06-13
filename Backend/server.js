@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser=require('body-parser');
 const FormSchema = require('./Models/Form.js');
+const FriendSchema = require('./Models/friend.js');
 
 
 //const config = require('Crypto-Wallet/Backend/config/index');
@@ -53,6 +54,48 @@ app.post("/registro",(req,res)=>{
  
     
 });
+// queue DS 
+class Queue{
+    constructor(queue,head,tail){
+        this.queue = [];
+        this.head = 0;
+        this.tail = 0;
+    }
+   
+
+ enqueue = (data)=>{
+    this.queue[this.tail] = data;
+    this.save(data);
+    this.tail++;
+}
+
+ dequeue = (data)=>{
+    let size = this.tail - this.head;
+    let item = this.queue[this.head];
+    delete this.queue[this.head];
+}
+
+ peek = ()=>{
+    return this.queue[this.tail-1];
+}
+
+}
+
+
+
+app.post("/friend",(req,res)=>{
+    let friend = new FriendSchema();
+    friend.Nombre = req.body.Nombre;
+    friend.Account = req.body.Account;
+    friend.Amount = req.body.Amount;
+    friend.nickname = req.body.nickname;
+    
+    Queue.enqueue(friend);
+    // encolar por amount
+    
+
+
+});
  
 app.get("/portal",(req,res)=>{
     res.send("Portal");
@@ -63,3 +106,4 @@ app.get("/portal",(req,res)=>{
 app.listen(port,()=>{
     console.info(`Listening on port${port}`);
 });
+

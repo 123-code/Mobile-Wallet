@@ -3,14 +3,14 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser=require('body-parser');
 const FormSchema = require('./Models/Form.js');
-const FriendSchema = require('./Models/friend.js');
+const friendSchema = require('./Models/friend.js');
 
 
 //const config = require('Crypto-Wallet/Backend/config/index');
 const port =5009;
 
 async function connect(){
-    return mongoose.connect('mongodb://localhost:27017/price',{
+    return mongoose.connect('mongodb://localhost:27017/friends',{
         useNewUrlParser:true,
         useUnifiedTopology:true,
     });
@@ -62,35 +62,45 @@ class Queue{
         this.tail = 0;
     }
    
-
- enqueue = (data)=>{
+ queuein(data){
     this.queue[this.tail] = data;
     this.save(data);
     this.tail++;
 }
 
- dequeue = (data)=>{
+
+queueout(){
     let size = this.tail - this.head;
     let item = this.queue[this.head];
     delete this.queue[this.head];
 }
 
- peek = ()=>{
-    return this.queue[this.tail-1];
+peek(){
+    return this.queue[this.head];
 }
 
+
 }
-
-
-
-app.post("/friend",(req,res)=>{
-    let friend = new FriendSchema();
+/*
     friend.Nombre = req.body.Nombre;
     friend.Account = req.body.Account;
     friend.Amount = req.body.Amount;
     friend.nickname = req.body.nickname;
+*/
+
+
+app.post("/friend",(req,res)=>{
+
     
-    Queue.enqueue(friend);
+    let friend = new friendSchema();
+    let queue = new Queue(friend,0,0);
+
+    friend.Nombre = "Jose";
+    friend.Account = 123;
+    friend.Amount = 23;
+    friend.nickname = "JJ";
+    
+    queue.queuein(friend);
     // encolar por amount
     
 

@@ -7,4 +7,4 @@ const friendSchema = mongoose.Schema({
     nickname:{type:String,required:true},
 });
 
-module.exports = friendSchema;
+module.exports = mongoose.model('friendSchema',friendSchema);

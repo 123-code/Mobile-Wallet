@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import {FaWallet} from 'react-icons/fa';
 import {BiTransfer} from 'react-icons/bi';
 import {FaRegMoneyBillAlt} from 'react-icons/fa';
@@ -9,14 +10,12 @@ function Navbar(){
 const elements = ['Inicio',"Mi Billetera","Transferencias","Ayuda"];
     return(
         <>
-        { 
-        elements.map((element,index)=>{
-            return(
-                <h2 key={index}>{element}</h2>
-            )
-        })
-         }
-
+      <nav>
+        
+        <Link to="/" className="font-mono"> Home </Link>
+       
+        
+      </nav>
         </>
     )
 }

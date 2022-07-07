@@ -56,11 +56,15 @@ app.post("/registro",(req,res)=>{
 });
 // queue DS 
 class Queue{
-    constructor(queue,head,tail){
+    
+    constructor(data){
         this.queue = [];
         this.head = 0;
         this.tail = 0;
+        this.friends = [];
     }
+
+
    
  queuein(data){
     this.queue[this.tail] = data;
@@ -93,7 +97,7 @@ app.post("/friend",(req,res)=>{
 
     
     let friend = new friendSchema();
-    let queue = new Queue(friend,0,0);
+    let queue = new Queue();
 
     friend.Nombre = "Jose";
     friend.Account = 123;

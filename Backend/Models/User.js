@@ -3,6 +3,37 @@ const bcrypt = require('bcrypt');
 
 const UserSchema = mongoose.Schema({
     username:{
+        type:{},required:true,index:{unique:true}
+    },
+
+    Name:{
+        type:String,
+        required:true
+    },
+
+    Cedula:{
+        type:Number,
+        required:true
+    },
+
+    PIN:{
+        type:Number,
+        required:true,
+        GenerateHash:true
+
+    }
+});
+
+async function GenerateHash(password){
+    const COST = 12;
+    return bcrypt.hash(password,COST);
+}
+
+module.exports = (UserSchema);
+
+/*
+const UserSchema = mongoose.Schema({
+    username:{
 type:{},required:true,index:{unique:true}
 
     },
@@ -17,3 +48,5 @@ async function GenerateHash(password){
     return bcrypt.hash(password,COST);
 }
 module.exports = ("PasswordSchema",UserSchema);
+
+*/

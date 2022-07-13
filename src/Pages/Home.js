@@ -13,7 +13,9 @@ const Home = () => {
     return ( 
         <>
             <h1>Home</h1>
-            
+            <button> Empieza a usar Payz </button>
+            <Registro/>
+
         </>
     );
 }

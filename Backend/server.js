@@ -10,7 +10,7 @@ const friendSchema = require('./Models/friend.js');
 const port =5009;
 
 async function connect(){
-    return mongoose.connect('mongodb://localhost:27017/friends',{
+    return mongoose.connect('mongodb://localhost:27017/payzuser',{
         useNewUrlParser:true,
         useUnifiedTopology:true,
     });

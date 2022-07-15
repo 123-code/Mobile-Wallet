@@ -54,6 +54,24 @@ app.post("/registro",(req,res)=>{
  
     
 });
+
+app.post("/form",(req,res)=>{
+    let newform = new FormSchema();
+    newform.Nombre = req.body.Nombre;
+    newform.Apellido = req.body.Apellido;
+    newform.Cedula = req.body.Cedula;
+    newform.Usuario = req.body.Usuario;
+
+   newform.save(function(err,data){
+    if(err){
+        console.info(err);
+    }
+    else if(!err){
+        console.info("data inserted");
+    }
+   })
+}
+);
 // queue DS 
 class Queue{
     

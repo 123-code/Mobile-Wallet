@@ -51,7 +51,7 @@ const handlesubmit = ()=>{
     <h1> Confirma tu PIN </h1>
     <input type="text" onChange={setconf=(evt)=>conf=evt.target.value}/>
 
-    <button onClick = {handlesubmit()}> Guardar </button>
+    <button onClick = {handlesubmit}> Guardar </button>
 
   </div>
 

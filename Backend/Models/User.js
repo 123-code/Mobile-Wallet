@@ -8,7 +8,7 @@ async function GenerateHash(password){
 
 const UserSchema = mongoose.Schema({
     username:{
-        type:{},required:true,index:{unique:true}
+        type:String,required:true,index:{unique:true}
     },
 
     Name:{

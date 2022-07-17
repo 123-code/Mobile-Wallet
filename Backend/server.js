@@ -38,10 +38,10 @@ app.get("/billetera",(req,res)=>{
 app.post("/registro",(req,res)=>{
     res.send("Registro");
     let newregistro = new FormSchema();
-    newregistro.Nombre = req.body.Nombre;
-    newregistro.Apellido = req.body.Apellido;
-    newregistro.Cedula = req.body.Cedula;
-    newregistro.Usuario = req.body.Usuario;
+    newregistro.Name = req.body;
+    newregistro.Apellido = req.body;
+    newregistro.Cedula = req.body;
+    newregistro.Usuario = req.body;
 
     newregistro.save(function(err,data){
         if(err){
@@ -57,7 +57,7 @@ app.post("/registro",(req,res)=>{
 
 app.post("/form",(req,res)=>{
     let newform = new FormSchema();
-    newform.Nombre = req.body.Nombre;
+    newform.Name = req.body.Name;
     newform.Apellido = req.body.Apellido;
     newform.Cedula = req.body.Cedula;
     newform.Usuario = req.body.Usuario;

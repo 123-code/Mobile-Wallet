@@ -18,7 +18,7 @@ const handlesubmit = ()=>{
   }
 
   return(
-    fetch('mongodb://localhost:27017/payzuser',{
+    fetch('//localhost:27017/payzuser',{
       method:'POST',
       body: JSON.stringify(databody),
       headers:{

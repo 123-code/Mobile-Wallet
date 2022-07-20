@@ -7,30 +7,15 @@ async function GenerateHash(password){
 }
 
 const UserSchema = mongoose.Schema({
-    username:{
-        type:String,required:true,index:{unique:true}
-    },
+    Name:{type:String, required:true,},
+    Apellido:{ type:String, required:true,},
+    Cedula:{ type:Number, required:true,},
+    Usuario:{ type:String, required:true, unique:true},
 
-    Name:{
-        type:String,
-        required:true
-    },
-
-    Cedula:{
-        type:Number,
-        required:true
-    },
-
-    PIN:{
-        type:Number,
-        required:true,
-        GenerateHash:true
-
-    }
 });
 
 
-module.exports = (UserSchema);
+module.exports = ('User',UserSchema);
 
 /*
 const UserSchema = mongoose.Schema({

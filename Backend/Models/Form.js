@@ -1,6 +1,7 @@
-const mongoose = require("Mongoose");
+const mongoose = require("mongoose");
+//const Schema = mongoose.Schema;
 
-const FormSchema = new mongoose.Schema({
+const FormSchema = mongoose.Schema({
     
     Nombre:{type:String,required:true},
     Apellido:{type:String,required:true},
@@ -8,10 +9,5 @@ const FormSchema = new mongoose.Schema({
     Usuario:{type:{},required:true,index:{unique:true}},
 },
 
-{
-    timestamps:true
-}
-
-
 );
-module.exports = mongoose.model("Form",FormSchema);
+ module.exports = mongoose.model("FormSchema",FormSchema);

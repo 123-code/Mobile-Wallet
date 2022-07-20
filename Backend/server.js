@@ -35,43 +35,43 @@ app.get("/billetera",(req,res)=>{
     res.send("Billetera");
 });
 
-app.post("/registro",(req,res)=>{
-    res.send("Registro");
-    let newregistro = new FormSchema();
-    newregistro.Name = req.body;
-    newregistro.Apellido = req.body;
-    newregistro.Cedula = req.body;
-    newregistro.Usuario = req.body;
+app.post("/registro",(req,res,next)=>{
+    //res.send("Registro");
+    let newregistro = new FormSchema({
+        Nombre : req.body.Nombre,
+        Apellido : req.body.Apellido,
+        Cedula :  req.body.Cedula,
+       Usuario :  req.body.Usuario,
 
-    newregistro.save(function(err,data){
+      
+    });
+
+    let formmodel = mongoose.model('FormSchema',FormSchema);
+    let newform = new formmodel({"Nombre":"Juan","Apellido":"Perez","Cedula":123456789,"Usuario":"juanperez"});
+
+    newform.save(function(err,data){
         if(err){
-            console.info(err);
+           
+            console.info('ERROR');
         }
         else{
             console.info("data inserted");
         }
+    });
+
+    res.render('/',{
+        Nombre : req.body.Nombre,
+        Apellido : req.body.Apellido,
+        Cedula : req.body.Cedula,
+       Usuario : req.body.Usuario
     })
- 
     
 });
 
-app.post("/form",(req,res)=>{
-    let newform = new FormSchema();
-    newform.Name = req.body.Name;
-    newform.Apellido = req.body.Apellido;
-    newform.Cedula = req.body.Cedula;
-    newform.Usuario = req.body.Usuario;
+app.get('/registro',(req,res)=>{
+    res.send("Registro");
+})
 
-   newform.save(function(err,data){
-    if(err){
-        console.info(err);
-    }
-    else if(!err){
-        console.info("data inserted");
-    }
-   })
-}
-);
 // queue DS 
 class Queue{
     

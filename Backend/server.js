@@ -35,19 +35,35 @@ app.get("/billetera",(req,res)=>{
     res.send("Billetera");
 });
 
-app.post("/registro",(req,res,next)=>{
-    //res.send("Registro");
+app.post("/postregistro",bodyParser,(req,res,next)=>{
+   
+    /*res.send("Registro");
+    req.assert("Nombre","Nombre es requerido").notEmpty();
+    req.assert("Cedula","Cedula es requerido").notEmpty();
+    req.assert("PIN","PIN es requerido").notEmpty(); 
+    req.assert("conf","PIN es requerido").notEmpty();
+    //req.assert("conf","PIN es requerido").notEmpty();
+    */
     let newregistro = new FormSchema({
         Nombre : req.body.Nombre,
-        Apellido : req.body.Apellido,
         Cedula :  req.body.Cedula,
+        PIN : req.body.PIN,
+        conf : req.body.conf,
        Usuario :  req.body.Usuario,
+
+       /*
+     "Nombre":Nombre,
+    "Cedula":Cedula,
+    "PIN":PIN,
+    "conf":conf,
+    "username":user
+       */
 
       
     });
 
     let formmodel = mongoose.model('FormSchema',FormSchema);
-    let newform = new formmodel({"Nombre":"Juan","Apellido":"Perez","Cedula":123456789,"Usuario":"juanperez"});
+    let newform = new formmodel({"Nombre":req.body.Nombre,"Apellido":req.body.Apellido,"Cedula":req.body.Cedula,"Usuario":req.body.Usuario});
 
     newform.save(function(err,data){
         if(err){
@@ -55,6 +71,7 @@ app.post("/registro",(req,res,next)=>{
             console.info('ERROR');
         }
         else{
+            req.redirect("/");
             console.info("data inserted");
         }
     });

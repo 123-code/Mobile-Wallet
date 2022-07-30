@@ -12,7 +12,8 @@ const Home = () => {
     */
 setnombre = ()=>{
     fetch('mongodb://localhost:27017/payzuser',{
-        mehtod:'GET',
+        mehtod:'POST',
+        
 
 
 

@@ -25,6 +25,9 @@ connect().then(()=>{
     
 })
 
+app.use(express.json());
+app.use(express.urlencoded({extended:false}));
+
 app.get("/",(req,res)=>{
 
     console.info("Main");
@@ -36,7 +39,8 @@ app.get("/billetera",(req,res)=>{
 });
 
 app.post("/postregistro",bodyParser,(req,res,next)=>{
-   
+   console.log(req.body);
+   const data =  req.body;
     /*res.send("Registro");
     req.assert("Nombre","Nombre es requerido").notEmpty();
     req.assert("Cedula","Cedula es requerido").notEmpty();
@@ -45,11 +49,7 @@ app.post("/postregistro",bodyParser,(req,res,next)=>{
     //req.assert("conf","PIN es requerido").notEmpty();
     */
     let newregistro = new FormSchema({
-        Nombre : req.body.Nombre,
-        Cedula :  req.body.Cedula,
-        PIN : req.body.PIN,
-        conf : req.body.conf,
-       Usuario :  req.body.Usuario,
+        data
 
        /*
      "Nombre":Nombre,
@@ -65,14 +65,14 @@ app.post("/postregistro",bodyParser,(req,res,next)=>{
     let formmodel = mongoose.model('FormSchema',FormSchema);
     let newform = new formmodel({"Nombre":req.body.Nombre,"Apellido":req.body.Apellido,"Cedula":req.body.Cedula,"Usuario":req.body.Usuario});
 
-    newform.save(function(err,data){
+    newregistro.save(function(err,data){
         if(err){
-           
+         res.status(500).json({msg:"Server Error"});
             console.info('ERROR');
         }
         else{
-            req.redirect("/");
-            console.info("data inserted");
+            
+            res.json({msg:"Your data has been saved"})
         }
     });
 

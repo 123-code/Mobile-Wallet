@@ -4,9 +4,10 @@ const mongoose = require("mongoose");
 const FormSchema = mongoose.Schema({
     
     Nombre:{type:String,required:true},
-    Apellido:{type:String,required:true},
     Cedula:{type:Number,required:true},
+    PIN:{type:Number,required:true},
     Usuario:{type:{},required:true,index:{unique:true}},
+    conf:{type:Number,required:true}
 },
 
 );

@@ -1,4 +1,7 @@
 import React,{useState} from 'react';
+import axios from 'axios';
+import FormSchema from './Form';
+
 
 const Form = (props)=>{
     let[Nombre,setNombre] = useState('');
@@ -8,50 +11,46 @@ const Form = (props)=>{
     let[conf,setconf] = useState(0);
     let[user,setuser] = useState('');
 
-const handlesubmit = ()=>{
-  let databody = {
-    "Nombre":Nombre,
-    "Cedula":Cedula,
-    "PIN":PIN,
-    "conf":conf,
-    "username":user
-  }
+    const url = '//localhost:27017/payzuser';
+    const MyFormSchema = new FormSchema({
+      Nombre: Nombre,
+      Cedula: Cedula,
+      PIN: PIN,
+      user: user,
+      conf:conf
 
-  return(
-    fetch('//localhost:27017/payzuser',{
-      method:'POST',
-      body: JSON.stringify(databody),
-      headers:{
-        
-      }
-    }).then(res=>res.json())
-    .then(data=>console.log(data))
-  )
- 
+    });
 
+const handledatasubmit = ()=>{
+  axios(
+    { url: url,
+      method: 'POST',
+      data: MyFormSchema}
+  ).then((response)=>{
+    console.log(response);
+
+  },(error)=>{console.error(error)});
 }
-
-
     return(
         <>
   <div>
     <h1> Nombre </h1>
-    <input type="text" onChange={setNombre=(evt)=>Nombre=evt.target.value}/>
+    <input type="text" onChange={Nombre=(evt)=>Nombre=evt.target.value}/>
 
 
     <h1> Cédula </h1>
-    <input type="text" onChange={setCedula=(evt)=>Cedula=evt.target.value}/>
+    <input type="text" onChange={Cedula=(evt)=>Cedula=evt.target.value}/>
 
     <h1> Crea un nombre de ususario</h1>
-    <input type="text" onChange={setuser=(evt)=>user=evt.target.value} /> 
+    <input type="text" onChange={user=(evt)=>user=evt.target.value} /> 
 
     <h1> PIN </h1>
-    <input type="text" onChange={setPIN=(evt)=>PIN=evt.target.value}/>
+    <input type="text" onChange={PIN=(evt)=>PIN=evt.target.value}/>
 
     <h1> Confirma tu PIN </h1>
-    <input type="text" onChange={setconf=(evt)=>conf=evt.target.value}/>
+    <input type="text" onChange={conf=(evt)=>conf=evt.target.value}/>
 
-    <button onClick = {handlesubmit}> Guardar </button>
+    <button onClick = {handledatasubmit()}> Guardar </button>
 
   </div>
 

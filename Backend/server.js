@@ -38,52 +38,7 @@ app.get("/billetera",(req,res)=>{
     res.send("Billetera");
 });
 
-app.post("/postregistro",bodyParser,(req,res,next)=>{
-   console.log(req.body);
-   const data =  req.body;
-    /*res.send("Registro");
-    req.assert("Nombre","Nombre es requerido").notEmpty();
-    req.assert("Cedula","Cedula es requerido").notEmpty();
-    req.assert("PIN","PIN es requerido").notEmpty(); 
-    req.assert("conf","PIN es requerido").notEmpty();
-    //req.assert("conf","PIN es requerido").notEmpty();
-    */
-    let newregistro = new FormSchema({
-        data
 
-       /*
-     "Nombre":Nombre,
-    "Cedula":Cedula,
-    "PIN":PIN,
-    "conf":conf,
-    "username":user
-       */
-
-      
-    });
-
-    let formmodel = mongoose.model('FormSchema',FormSchema);
-    let newform = new formmodel({"Nombre":req.body.Nombre,"Apellido":req.body.Apellido,"Cedula":req.body.Cedula,"Usuario":req.body.Usuario});
-
-    newregistro.save(function(err,data){
-        if(err){
-         res.status(500).json({msg:"Server Error"});
-            console.info('ERROR');
-        }
-        else{
-            
-            res.json({msg:"Your data has been saved"})
-        }
-    });
-
-    res.render('/',{
-        Nombre : req.body.Nombre,
-        Apellido : req.body.Apellido,
-        Cedula : req.body.Cedula,
-       Usuario : req.body.Usuario
-    })
-    
-});
 
 app.get('/registro',(req,res)=>{
     res.send("Registro");

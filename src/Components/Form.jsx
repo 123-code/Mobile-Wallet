@@ -3,7 +3,7 @@ import axios from 'axios';
 import FormSchema from './Form';
 
 
-const Form = (props)=>{
+const Form = ()=>{
   let [data,setdata] = useState({
     Nombre:"",
     Cedula:"",
@@ -27,6 +27,18 @@ function handlesubmit(e){
 }
 
 function handledatasubmit(e){
+  e.preventDefault();
+  axios.post(url,{
+    Nombre:data.Nombre,
+    Cedula:parseInt(data.cedula),
+    PIN:parseInt(data.PIN),
+    conf:parseInt(data.conf),
+    user:data.user,
+     
+  }).then(res=>{
+    console.log(res.data);
+
+  })
 
 }
     return(

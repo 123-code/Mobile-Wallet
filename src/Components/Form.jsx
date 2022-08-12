@@ -16,22 +16,17 @@ const Form = (props)=>{
     
     
 
-const handledatasubmit = ()=>{
-  axios(
-    { url: url,
-      method: 'POST',
-      data: payload}
-  ).then((response)=>{
-    console.log(response);
 
-  },(error)=>{console.error(error)});
-}
 
 function handlesubmit(e){
   const newdata = {...data}
   newdata[e.target.id] = e.target.value;
   setdata(newdata);
   console.log(newdata);
+
+}
+
+function handledatasubmit(e){
 
 }
     return(
@@ -53,7 +48,7 @@ function handlesubmit(e){
     <h1> Confirma tu PIN </h1>
     <input type="text" onChange={(e)=>handlesubmit(e)} value={data.user}/>
 
-    <button onClick = {handledatasubmit()}> Guardar </button>
+    <button onClick = {(e)=>handledatasubmit(e)}> Guardar </button>
 
   </div>
 

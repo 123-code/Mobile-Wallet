@@ -12,7 +12,7 @@ const Form = ()=>{
     user:""
   })
 
-    const url = 'api/postregistro';
+    const url = '/api/postregistro';
     
     
 
@@ -44,23 +44,26 @@ function handledatasubmit(e){
     return(
         <>
   <div>
+    <form onSubmit={(e)=>handledatasubmit(e)}>
     <h1> Nombre </h1>
-    <input type="text" onChange={(e)=>handlesubmit(e)} value={data.Nombre}/>
+    <input  id="Nombre" type="text" onChange={(e)=>handlesubmit(e)} value={data.Nombre}/>
 
 
     <h1> Cédula </h1>
-    <input type="text" onChange={(e)=>handlesubmit(e)} value={data.Cedula}/>
+    <input id="Cedula" type="text" onChange={(e)=>handlesubmit(e)} value={data.Cedula}/>
 
     <h1> Crea un nombre de ususario</h1>
-    <input type="text" onChange={(e)=>handlesubmit(e)} value={data.PIN}/>
+    <input id = "user" type="text" onChange={(e)=>handlesubmit(e)} value={data.user}/>
 
     <h1> PIN </h1>
-    <input type="text" onChange={(e)=>handlesubmit(e)} value={data.conf}/>
+    <input id = "PIN" type="text" onChange={(e)=>handlesubmit(e)} value={data.PIN}/>
 
     <h1> Confirma tu PIN </h1>
-    <input type="text" onChange={(e)=>handlesubmit(e)} value={data.user}/>
+    <input id = "conf" type="text" onChange={(e)=>handlesubmit(e)} value={data.conf}/>
 
-    <button onClick = {(e)=>handledatasubmit(e)}> Guardar </button>
+    <button> Guardar </button>
+    </form>
+    
 
   </div>
 

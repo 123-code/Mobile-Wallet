@@ -7,7 +7,7 @@ const friendSchema = require('./Models/friend.js');
 
 
 //const config = require('Crypto-Wallet/Backend/config/index');
-const port =5009;
+const port =5008;
 
 async function connect(){
     return mongoose.connect('mongodb://localhost:27017/payzuser',{

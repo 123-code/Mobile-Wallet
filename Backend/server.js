@@ -4,10 +4,12 @@ const mongoose = require('mongoose');
 const bodyParser=require('body-parser');
 const FormSchema = require('./Models/Form.js');
 const friendSchema = require('./Models/friend.js');
+const cors = require('cors');
 
+app.use(cors());
 
 //const config = require('Crypto-Wallet/Backend/config/index');
-const port =5008;
+const port = 5008;
 
 async function connect(){
     return mongoose.connect('mongodb://localhost:27017/payzuser',{
@@ -15,7 +17,7 @@ async function connect(){
         useUnifiedTopology:true,
     });
 }
-
+ 
 connect().then(()=>{
     console.info("Connected to database successfully");
    
@@ -38,7 +40,9 @@ app.get("/billetera",(req,res)=>{
     res.send("Billetera");
 });
 
-
+app.post("/api/postregistro",(req,res)=>{
+console.log("POST");
+})
 
 app.get('/registro',(req,res)=>{
     res.send("Registro");

@@ -1,6 +1,8 @@
 import React,{useState} from 'react';
 import axios from 'axios';
 import FormSchema from './Form';
+//require("dotenv").config({ path: ".env" });
+
 
 
 const Form = ()=>{
@@ -12,8 +14,9 @@ const Form = ()=>{
     user:""
   })
 
-    const url = '/api/postregistro';
-    
+
+    const url = 'http://5008/api/postregistro';
+    const mongourl = process.env.MONGO_URI;
     
 
 
@@ -38,6 +41,9 @@ function handledatasubmit(e){
   }).then(res=>{
     console.log(res.data);
 
+  })
+  .catch(err => {
+    console.log(err.response);
   })
 
 }

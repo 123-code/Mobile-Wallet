@@ -1,7 +1,11 @@
 import React,{useState} from 'react';
 import axios from 'axios';
 import FormSchema from './Form';
-//require("dotenv").config({ path: ".env" });
+import MyAccount from "../Pages/MyAccount";
+import Error from '../Pages/Error';
+ 
+
+//require("dotenv").config({ path: ".env" }); Crypto-Wallet/src/Pages/MyAccount.jsx
 
 
 
@@ -14,6 +18,15 @@ const Form = ()=>{
     user:""
   })
 
+  let[saved,setsaved] = useState(false);
+
+  function Setsaved(){
+setsaved(true);
+  }
+
+  function saveddata(){
+    saved===true ? <MyAccount/> : <Error/> 
+  }
 
     const url = 'http://5008/api/postregistro';
     const mongourl = process.env.MONGO_URI;
@@ -40,6 +53,7 @@ function handledatasubmit(e){
      
   }).then(res=>{
     console.log(res.data);
+    Setsaved();
 
   })
   .catch(err => {

@@ -1,5 +1,11 @@
 const mongoose = require("mongoose");
+const bcrypt = require('bcrypt');
 //const Schema = mongoose.Schema;
+
+async function GenerateHash(password){
+    const COST = 12;
+    return bcrypt.hash(password,COST);
+}
 
 const FormSchema = mongoose.Schema({
     

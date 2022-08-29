@@ -1,6 +1,5 @@
 import React,{useState} from 'react';
 import axios from 'axios';
-import FormSchema from './Form';
 import MyAccount from "../Pages/MyAccount";
 import Error from '../Pages/Error';
  
@@ -15,7 +14,8 @@ const Form = ()=>{
     Cedula:"",
     PIN:"",
     conf:"",
-    user:""
+    user:"",
+    email:""
   })
 
   let[saved,setsaved] = useState(false);
@@ -29,7 +29,7 @@ setsaved(true);
   }
 
     const url = 'http://5008/api/postregistro';
-    const mongourl = process.env.MONGO_URI;
+   // const mongourl = process.env.MONGO_URI;
     
 
 
@@ -68,6 +68,8 @@ function handledatasubmit(e){
     <h1> Nombre </h1>
     <input  id="Nombre" type="text" onChange={(e)=>handlesubmit(e)} value={data.Nombre}/>
 
+    <h1> Email </h1>
+    <input  id="email" type="text" onChange={(e)=>handlesubmit(e)} value={data.email}/>
 
     <h1> Cédula </h1>
     <input id="Cedula" type="text" onChange={(e)=>handlesubmit(e)} value={data.Cedula}/>
@@ -81,7 +83,7 @@ function handledatasubmit(e){
     <h1> Confirma tu PIN </h1>
     <input id = "conf" type="text" onChange={(e)=>handlesubmit(e)} value={data.conf}/>
 
-    <button> Guardar </button>
+    <button onClick = {saveddata()}> Guardar </button>
     </form>
     
 

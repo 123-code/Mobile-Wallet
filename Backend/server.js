@@ -7,8 +7,11 @@ const friendSchema = require('./Models/friend.js');
 const cors = require('cors');
 
 app.use(cors());
+app.use(bodyParser.json());
 
-//const config = require('Crypto-Wallet/Backend/config/index');
+const jsonParser = bodyParser.json();
+const urlencodedParser = bodyParser.urlencoded({ extended: false })
+
 const port = 5008;
 
 async function connect(){
@@ -17,15 +20,15 @@ async function connect(){
         useUnifiedTopology:true,
     });
 }
- 
-connect().then(()=>{
-    console.info("Connected to database successfully");
-   
-}).catch((err)=>{
-    console.info("Error!");
-    console.error(err);
-    
-})
+
+try{
+    connect();
+    console.info("Connected to MongoDB")
+}
+catch (e){
+    console.error(e);
+}
+
 
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
@@ -40,9 +43,31 @@ app.get("/billetera",(req,res)=>{
     res.send("Billetera");
 });
 
-app.post("/api/postregistro",(req,res)=>{
+app.post("/api/postregistro",jsonParser,(req,res)=>{
+    let register = new FormSchema();
+    register.Nombre = req.body.name;
+    register.Email = req.body.Email;
+    register.Cedula = req.body.Cedula;
+    register.PIN = req.body.PIN;
+    register.Usuario = req.body.Usuario;
+    register.conf = req.body.conf;
+
 console.log("POST");
-})
+
+try{
+    register.save((data,err)=>{
+        if(err){
+            console.error(err)
+        }
+        else if(!err){
+            console.log(data);
+        }
+    })
+}
+catch(err){
+    console.error(err);
+}
+});
 
 app.get('/registro',(req,res)=>{
     res.send("Registro");

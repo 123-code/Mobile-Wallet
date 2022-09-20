@@ -7,7 +7,7 @@ const friendSchema = require('./Models/friend.js');
 const cors = require('cors');
 
 app.use(cors());
-app.use(bodyParser.json());
+app.use(require('connect').bodyParser());
 
 const jsonParser = bodyParser.json();
 const urlencodedParser = bodyParser.urlencoded({ extended: false })

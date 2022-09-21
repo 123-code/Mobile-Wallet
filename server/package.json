@@ -4,12 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rimraf dist",
+    "start": "npm-run-all clean --parallel watch:build watch:server --print-label",
+    "watch:build": "tsc --watch",
+    "watch:server": "nodemon './dist/index.js' --watch './dist'"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/sequelize": "^4.28.14",
+    "dotenv": "^16.0.2",
     "express": "^4.18.1",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.23.0",

@@ -1,15 +1,21 @@
+import * as dotenv from "dotenv";
+dotenv.config({ path: "./env" });
 
-module.exports  =  {
-    Name:"Payz",
-    postgresql:{
-        options:{
-            host:"localhost",
-            port:3406,
-            database:"payzreg",
-            dialect:"postgresql",
-            username:process.env.POSTGRES_USER,
-            password:process.env.POSTGRES_PASSWORD,
+export class sqlconfig{
+    conf = {
+        Name:"Payz",
+        postgresql :{
+            options : {
+                host:"localhost",
+                port:3406,
+                database:"payzreg",
+                dialect:"postgres",
+                username:"jnar",
+                password:"postgres",
+            } 
         }
     }
+
 }
+ 
 

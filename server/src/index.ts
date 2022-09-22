@@ -4,7 +4,7 @@ import { Sequelize } from 'sequelize';
 function connecttopostgreSQL(){
     const sequelize = new Sequelize(
         {       host:"localhost",
-                 port:3406,
+                 port:5432,
                 database:"payzreg",
                 dialect:"postgres",
                 username:"jnar",

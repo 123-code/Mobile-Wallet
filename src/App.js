@@ -6,6 +6,7 @@ import Registro from "./Pages/Registro";
 import Portal from "./Pages/Portal";
 import MiBilletera from "./Pages/MiBilletera";
 import Navbar from "./Components/Navbar";
+import Main from "./Pages/Main";
 //
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
     <div className="App">
        <Navbar/>
       <Routes>
-        <Route path="/" element={ <Home/> } />
+        <Route path="/" element={ <Main/> } />
         <Route path="/registro" element={ <Registro/> } />
         <Route path="/portal" element={ <Portal/> } />
         <Route path="billetera" element={ <MiBilletera/> } />

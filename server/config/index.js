@@ -33,7 +33,7 @@ class sqlconfig {
             postgresql: {
                 options: {
                     host: "localhost",
-                    port: 3406,
+                    port: 5432,
                     database: "payzreg",
                     dialect: "postgres",
                     username: "jnar",

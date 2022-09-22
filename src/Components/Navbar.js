@@ -12,7 +12,9 @@ const elements = ['Inicio',"Mi Billetera","Transferencias","Ayuda"];
         <>
       <nav>
         
-        <Link to="/" className="font-mono"> Home </Link>
+        <Link to="/" className="font-mono"> Registrate </Link>
+      
+        <Link to="/" className = "font-mono"> Amigos </Link>
        
         
       </nav>

@@ -16,7 +16,7 @@ const express_1 = __importDefault(require("express"));
 const sequelize_1 = require("sequelize");
 function connecttopostgreSQL() {
     const sequelize = new sequelize_1.Sequelize({ host: "localhost",
-        port: 3406,
+        port: 5432,
         database: "payzreg",
         dialect: "postgres",
         username: "jnar",

@@ -1,5 +1,7 @@
 import  express  from "express";
 import { Sequelize } from 'sequelize';
+import * as dotenv from "dotenv";
+dotenv.config({ path: ".env" });
 
 function connecttopostgreSQL(){
     const sequelize = new Sequelize(
@@ -7,8 +9,8 @@ function connecttopostgreSQL(){
                  port:5432,
                 database:"payzreg",
                 dialect:"postgres",
-                username:"jnar",
-                password:"postgres",
+                username:process.env.POSTGRES_USER,
+                password:process.env.POSTGRES_PASSWORD,
     
         }
 

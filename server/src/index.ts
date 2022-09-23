@@ -1,7 +1,9 @@
 import  express  from "express";
+import  User from "../Models/User";
 import { Sequelize } from 'sequelize';
 import * as dotenv from "dotenv";
 dotenv.config({ path: ".env" });
+
 
 function connecttopostgreSQL(){
     const sequelize = new Sequelize(
@@ -30,9 +32,19 @@ const server = express();
 const port = 5002;
  
 const main = async()=>{
+
+
 connecttopostgreSQL();
+
 server.get("/",(req,res)=>{
 res.send("Main");
+});
+
+server.post("/register",(req,res)=>{
+    let ruser = new User();
+    ruser.payzuser.firstname = req.params.firstname;
+
+
 })
 
 server.listen(port,()=>{

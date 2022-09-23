@@ -27,6 +27,27 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
+"@sequelize/core@^7.0.0-alpha.10":
+  version "7.0.0-alpha.10"
+  resolved "https://registry.yarnpkg.com/@sequelize/core/-/core-7.0.0-alpha.10.tgz#dbc2c1010bd265f6d9a242614b69f47d190a6846"
+  integrity sha512-uikpWaCiIaijsgoa9cH+3jCQl8r+FaQPhoE8AOJYvPwxOx52E1JZnRPMXNnlpbFy3Xu0qekrc5LBJq7IR8UB0Q==
+  dependencies:
+    "@types/debug" "^4.1.7"
+    debug "^4.3.3"
+    dottie "^2.0.2"
+    inflection "^1.13.1"
+    lodash "^4.17.21"
+    moment "^2.29.1"
+    moment-timezone "^0.5.34"
+    pg-connection-string "^2.5.0"
+    retry-as-promised "^5.0.0"
+    semver "^7.3.5"
+    sequelize-pool "^7.1.0"
+    toposort-class "^1.0.1"
+    uuid "^8.3.2"
+    validator "^13.7.0"
+    wkx "^0.5.0"
+
 "@tsconfig/node10@^1.0.7":
   version "1.0.9"
   resolved "https://registry.npmjs.org/@tsconfig/node10/-/node10-1.0.9.tgz"
@@ -430,7 +451,7 @@ iconv-lite@0.4.24:
   dependencies:
     safer-buffer ">= 2.1.2 < 3"
 
-inflection@^1.13.2:
+inflection@^1.13.1, inflection@^1.13.2:
   version "1.13.4"
   resolved "https://registry.npmjs.org/inflection/-/inflection-1.13.4.tgz"
   integrity sha512-6I/HUDeYFfuNCVS3td055BaXBwKYuzw7K3ExVMStBowKo9oOAMJIXIHvdyR3iboTCp1b+1i5DSkIZTcwIktuDw==
@@ -662,6 +683,11 @@ raw-body@2.5.1:
     http-errors "2.0.0"
     iconv-lite "0.4.24"
     unpipe "1.0.0"
+
+retry-as-promised@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/retry-as-promised/-/retry-as-promised-5.0.0.tgz#f4ecc25133603a2d2a7aff4a128691d7bc506d54"
+  integrity sha512-6S+5LvtTl2ggBumk04hBo/4Uf6fRJUwIgunGZ7CYEBCeufGFW1Pu6ucUf/UskHeWOIsUcLOGLFXPig5tR5V1nA==
 
 retry-as-promised@^6.1.0:
   version "6.1.0"

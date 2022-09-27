@@ -36,11 +36,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const User_1 = __importDefault(require("../Models/User"));
 const sequelize_1 = require("sequelize");
 const dotenv = __importStar(require("dotenv"));
-dotenv.config({ path: ".env" });
+dotenv.config({ path: "./env" });
 function connecttopostgreSQL() {
-    const sequelize = new sequelize_1.Sequelize({ host: "localhost",
+    const sequelize = new sequelize_1.Sequelize({ host: '127.0.0.1',
         port: 5432,
         database: "payzreg",
         dialect: "postgres",
@@ -64,6 +65,23 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
     server.get("/", (req, res) => {
         res.send("Main");
     });
+    server.post("/register", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        try {
+            connecttopostgreSQL();
+            let reguser = yield User_1.default.create({
+                firstname: "Jose Ignacio",
+                lastname: "Naranjo",
+                email: "naranjojose256@gmail.com",
+                username: "jnar5",
+                password: "postgres",
+            });
+            yield reguser.save();
+            console.log(reguser.toJSON());
+        }
+        catch (err) {
+            console.error(err);
+        }
+    }));
     server.listen(port, () => {
         console.log(`server Listening on port ${port}!`);
     });

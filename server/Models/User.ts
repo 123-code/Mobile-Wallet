@@ -1,5 +1,7 @@
 import {Sequelize,DataTypes,Model} from "@sequelize/core";
-const sequelize = new Sequelize();
+import * as dotenv from "dotenv";
+dotenv.config({ path: ".env" });
+const sequelize = new Sequelize('postgres::memory:');
 
 export const payzuser = sequelize.define("Payz-User",{
     firstname:{

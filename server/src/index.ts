@@ -41,10 +41,15 @@ res.send("Main");
 });
 
 server.post("/register",(req,res)=>{
-    let ruser = new User();
-    ruser.payzuser.firstname = req.params.firstname;
-
-
+   let reguser = User.build({
+    firstname:"Jose Ignacio",
+    lastname:"Naranjo",
+    email:"naranjojose256@gmail.com",
+    username:"jnar5",
+    password:"1234",
+   }
+   )
+   console.log(reguser.toJSON());
 })
 
 server.listen(port,()=>{

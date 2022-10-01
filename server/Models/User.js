@@ -23,12 +23,11 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.payzuser = void 0;
 const core_1 = require("@sequelize/core");
 const dotenv = __importStar(require("dotenv"));
 dotenv.config({ path: ".env" });
 const sequelize = new core_1.Sequelize('postgres::memory:');
-exports.payzuser = sequelize.define("Payz-User", {
+const payzuser = sequelize.define("Payz-User", {
     firstname: {
         type: core_1.DataTypes.STRING,
         allowNull: false
@@ -60,6 +59,4 @@ exports.payzuser = sequelize.define("Payz-User", {
         allowNull: false,
     }
 });
-class User extends exports.payzuser {
-}
-exports.default = User;
+exports.default = payzuser;

@@ -1,5 +1,5 @@
 import  express  from "express";
-import  User from "../Models/User";
+import  payzreg from "../Models/User";
 import { Sequelize } from 'sequelize';
 import * as dotenv from "dotenv";
 dotenv.config({ path: "./env" });
@@ -40,10 +40,13 @@ server.get("/",(req,res)=>{
 res.send("Main");
 });
 
-server.post("/register",async (req,res)=>{
+server.post("/register", async (req,res)=>{
+     
+     
+   
     try{
-        connecttopostgreSQL();
-        let reguser = await User.create({
+        connecttopostgreSQL()
+        let reguser = await payzreg.create({
             firstname:"Jose Ignacio",
             lastname:"Naranjo",
             email:"naranjojose256@gmail.com",
@@ -51,12 +54,13 @@ server.post("/register",async (req,res)=>{
             password:"postgres",
            }
            )
-           
+           /*
            await reguser.save();
            console.log(reguser.toJSON());
-           
+           */
     }catch(err){
-        console.error(err)
+        console.error(err);
+        process.exit(1);
     }
 })
 server.listen(port,()=>{

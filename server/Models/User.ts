@@ -1,9 +1,35 @@
 import {Sequelize,DataTypes,Model} from "@sequelize/core";
 import * as dotenv from "dotenv";
-dotenv.config({ path: ".env" });
+dotenv.config({ path: "./env" });
 const sequelize = new Sequelize('postgres::memory:');
 
-export const payzuser = sequelize.define("Payz-User",{
+const connecttopostgres = async()=>{
+    const sequelize = new Sequelize(
+        {       host:'127.0.0.1',
+                 port:5432,
+                database:"payzreg",
+                dialect:"postgres",
+                username:process.env.POSTGRES_USER,
+                password:process.env.POSTGRES_PASSWORD,
+    
+        }
+
+    );
+    sequelize.authenticate()
+    .then(()=>{
+        console.log("Connected to postgreSQL")
+    }).catch((err)=>{
+        console.error(err);
+        process.exit(1);
+    })
+    return sequelize;
+}
+const main = async()=>{
+
+}
+
+
+const payzuser = sequelize.define("Payz-User",{
     firstname:{
         type:DataTypes.STRING,
         allowNull:false
@@ -35,6 +61,6 @@ export const payzuser = sequelize.define("Payz-User",{
         allowNull:false,
     }
 
-})
-class User extends payzuser{}
-export default User;
+});
+console.log(payzuser === sequelize.models.User);
+export default payzuser;

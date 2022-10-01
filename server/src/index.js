@@ -66,8 +66,8 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
         res.send("Main");
     });
     server.post("/register", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+        connecttopostgreSQL();
         try {
-            connecttopostgreSQL();
             let reguser = yield User_1.default.create({
                 firstname: "Jose Ignacio",
                 lastname: "Naranjo",
@@ -75,11 +75,14 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
                 username: "jnar5",
                 password: "postgres",
             });
-            yield reguser.save();
+            /*
+            await reguser.save();
             console.log(reguser.toJSON());
+            */
         }
         catch (err) {
             console.error(err);
+            process.exit(1);
         }
     }));
     server.listen(port, () => {

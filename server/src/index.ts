@@ -46,7 +46,7 @@ server.post("/register", async (req,res)=>{
    
     try{
         connecttopostgreSQL()
-        let reguser = await payzreg.create({
+        let reguser = await main.create({
             firstname:"Jose Ignacio",
             lastname:"Naranjo",
             email:"naranjojose256@gmail.com",

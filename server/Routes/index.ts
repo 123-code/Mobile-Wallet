@@ -20,6 +20,9 @@ server.get("/getuserdata",async (req,res)=>{
 
 });
 
+
+server.post("")
+
 server.post("/postusuario", async(req,res)=>{
     try{
         const user = await main.create({

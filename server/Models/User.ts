@@ -1,9 +1,9 @@
-import {Sequelize,DataTypes,Model} from "@sequelize/core";
+import {Sequelize,DataTypes} from "@sequelize/core";
 import * as dotenv from "dotenv";
 dotenv.config({ path: "./env" });
 const sequelize = new Sequelize('postgres::memory:');
 
-const connecttopostgres = async()=>{
+export const connecttopostgres = async()=>{
     const sequelize = new Sequelize(
         {       host:'127.0.0.1',
                  port:5432,
@@ -25,7 +25,7 @@ const connecttopostgres = async()=>{
     return sequelize;
 }
 
-const main = async()=>{
+export const Main = async()=>{
     await connecttopostgres();
      const payzuser = sequelize.define("Payz-User",{
         firstname:{
@@ -62,7 +62,3 @@ const main = async()=>{
     });
     console.log(payzuser === sequelize.models.User);
 }
-
-
-
-export default main;
